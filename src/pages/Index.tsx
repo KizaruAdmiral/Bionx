@@ -1,13 +1,46 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Navigation } from "@/components/Navigation";
+import { HeroSection } from "@/components/HeroSection";
+import { ProblemSection } from "@/components/ProblemSection";
+import { ProductShowcase } from "@/components/ProductShowcase";
+import { HowItWorksSection } from "@/components/HowItWorksSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { FeaturesGrid } from "@/components/FeaturesGrid";
+import { CTASection } from "@/components/CTASection";
+import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <main className="relative">
+      {/* Film Grain Overlay */}
+      <div className="grain-overlay" aria-hidden="true" />
+      
+      {/* Navigation */}
+      <Navigation />
+      
+      {/* Hero Section */}
+      <HeroSection />
+      
+      {/* Problem/Solution Narrative */}
+      <ProblemSection />
+      
+      {/* Product Showcase */}
+      <ProductShowcase />
+      
+      {/* How It Works */}
+      <HowItWorksSection />
+      
+      {/* Social Proof */}
+      <TestimonialsSection />
+      
+      {/* Technical Differentiators */}
+      <FeaturesGrid />
+      
+      {/* Conversion Section */}
+      <CTASection />
+      
+      {/* Footer */}
+      <Footer />
+    </main>
   );
 };
 
