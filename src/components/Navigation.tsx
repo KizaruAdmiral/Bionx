@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -81,6 +82,7 @@ export function Navigation() {
           >
             <span>Get Started</span>
           </a>
+          <ThemeToggle />
         </div>
 
         {/* Mobile Menu Button */}
@@ -139,6 +141,9 @@ export function Navigation() {
           >
             <span>Get Started</span>
           </a>
+          <div className="mt-4">
+            <ThemeToggle />
+          </div>
         </div>
       </motion.div>
     </motion.header>
