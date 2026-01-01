@@ -61,7 +61,7 @@ const About = () => {
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <p className="font-body text-lg md:text-xl text-foreground/70 leading-relaxed max-w-3xl mx-auto">
+            <p className="font-body text-lg md:text-xl text-foreground/70 leading-relaxed max-w-3xl mx-auto text-justify">
               At Binox, we're reshaping how individuals and organizations learn
               in the AI era. Our AI-first education platform delivers
               personalized, adaptive learning experiences that meet you exactly
@@ -110,7 +110,7 @@ const About = () => {
                   </p>
 
                   {/* Description */}
-                  <p className="font-body text-sm text-foreground/70 leading-relaxed mb-6">
+                  <p className="font-body text-sm text-foreground/70 leading-relaxed mb-6 text-justify">
                     {member.description}
                   </p>
 
