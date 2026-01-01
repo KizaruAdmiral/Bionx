@@ -45,11 +45,11 @@ export function Navigation() {
 
   const navLinks = [
     { label: "About", href: "/about" },
-    { label: "Features", href: isHomePage ? "#features" : "/#features" },
-    { label: "How It Works", href: isHomePage ? "#how-it-works" : "/#how-it-works" },
+    { label: "Features", href: "/features" },
     { label: "Course", href: "/course" },
     { label: "Pricing", href: "/pricing" },
     { label: "FAQ", href: "/faq" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (
