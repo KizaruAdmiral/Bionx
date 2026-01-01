@@ -66,7 +66,7 @@ export function Navigation() {
     >
       <nav className="container mx-auto flex items-center justify-between px-6 py-5">
         {/* Logo */}
-        <Link to="/" className="font-display text-2xl font-bold tracking-tight text-foreground">
+        <Link to="/about" className="font-display text-2xl font-bold tracking-tight text-foreground">
           BINOX
         </Link>
 
