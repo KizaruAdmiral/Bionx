@@ -50,13 +50,13 @@ export function FeaturesGrid() {
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <FadeIn className="mb-20 text-center max-w-3xl mx-auto">
-          <span className="font-mono text-xs tracking-[0.3em] uppercase text-background/40 mb-4 block">
+          <span className="font-mono text-xs tracking-[0.3em] uppercase text-background/60 mb-4 block">
             Capabilities
           </span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-background mb-6">
             Built for how you learn.
           </h2>
-          <p className="font-serif text-lg text-background/60">
+          <p className="font-serif text-lg text-background/80">
             Every feature designed to maximize retention and minimize wasted time.
           </p>
         </FadeIn>
@@ -73,7 +73,7 @@ export function FeaturesGrid() {
                   {feature.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="font-mono text-[10px] tracking-wider uppercase px-2 py-1 border border-background/20 text-background/60"
+                      className="font-mono text-[10px] tracking-wider uppercase px-2 py-1 border border-background/30 text-background/70"
                     >
                       {tag}
                     </span>
@@ -82,7 +82,7 @@ export function FeaturesGrid() {
                 <h3 className="font-display text-xl font-semibold text-background mb-3">
                   {feature.title}
                 </h3>
-                <p className="font-body text-background/60 leading-relaxed">
+                <p className="font-body text-background/80 leading-relaxed">
                   {feature.description}
                 </p>
               </div>
@@ -115,7 +115,7 @@ export function FeaturesGrid() {
                   key={index}
                   className="grid grid-cols-3 border-t border-background/10"
                 >
-                  <div className="p-4 font-body text-sm text-background/80">
+                  <div className="p-4 font-body text-sm text-background/90">
                     {row.feature}
                   </div>
                   <div className="p-4 text-center border-l border-background/10">
@@ -137,7 +137,7 @@ export function FeaturesGrid() {
                         <span className="text-background/30">—</span>
                       )
                     ) : (
-                      <span className="font-mono text-sm text-background/50">{row.traditional}</span>
+                      <span className="font-mono text-sm text-background/70">{row.traditional}</span>
                     )}
                   </div>
                 </div>
@@ -152,10 +152,10 @@ export function FeaturesGrid() {
             {["SOC 2", "GDPR", "ISO 27001", "FERPA"].map((badge) => (
               <div
                 key={badge}
-                className="flex items-center gap-2 px-4 py-2 border border-background/20"
+                className="flex items-center gap-2 px-4 py-2 border border-background/30"
               >
-                <span className="w-4 h-4 rounded-full border border-background/40" />
-                <span className="font-mono text-xs text-background/60">{badge} Compliant</span>
+                <span className="w-4 h-4 rounded-full border border-background/50" />
+                <span className="font-mono text-xs text-background/80">{badge} Compliant</span>
               </div>
             ))}
           </div>
