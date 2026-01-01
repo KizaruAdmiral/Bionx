@@ -15,7 +15,7 @@ const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
   email: z.string().trim().email("Please enter a valid email address").max(255, "Email must be less than 255 characters"),
   subject: z.string().trim().min(1, "Subject is required").max(200, "Subject must be less than 200 characters"),
-  message: z.string().trim().min(10, "Message must be at least 10 characters").max(2000, "Message must be less than 2000 characters"),
+  message: z.string().trim().min(10, "Message must be at least 10 characters").max(40000, "Message must be less than 40,000 characters"),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -190,7 +190,7 @@ export default function Contact() {
                     <span className="text-red-500 text-xs font-body">{errors.message}</span>
                   )}
                   <span className="text-foreground/40 text-xs font-mono">
-                    {formData.message.length}/2000 characters
+                    {formData.message.length.toLocaleString()}/40,000 characters
                   </span>
                 </div>
 
