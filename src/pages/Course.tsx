@@ -4,7 +4,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { 
   Clock, ArrowRight, Zap, Workflow, Bot, Search,
-  Sparkles, FlaskConical, Megaphone
+  Sparkles, FlaskConical, Megaphone, DollarSign
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 
@@ -32,6 +32,12 @@ const categories = [
     name: "AI Research",
     icon: FlaskConical,
     color: "hsl(199, 89%, 48%)",
+  },
+  {
+    id: "finance",
+    name: "Financial Management",
+    icon: DollarSign,
+    color: "hsl(142, 71%, 45%)",
   },
 ];
 
@@ -155,6 +161,46 @@ const courses = [
     icon: FlaskConical,
     accentColor: "hsl(262, 70%, 55%)",
     bgGradient: "from-[hsl(262,70%,55%)] to-[hsl(280,70%,45%)]",
+  },
+  // Financial Management
+  {
+    id: "ramp",
+    name: "Ramp",
+    category: "finance",
+    tagline: "AI-Powered Expense Management",
+    description: "Master Ramp's AI-driven corporate card and expense management platform. Learn to automate expense tracking, optimize spending, and leverage AI insights for smarter financial decisions.",
+    applications: ["Expense automation", "Spend analytics", "Receipt matching", "Budget controls"],
+    estimatedTime: "4 hours",
+    difficulty: "Beginner",
+    icon: DollarSign,
+    accentColor: "hsl(142, 71%, 45%)",
+    bgGradient: "from-[hsl(142,71%,45%)] to-[hsl(160,71%,35%)]",
+  },
+  {
+    id: "datarails",
+    name: "Datarails",
+    category: "finance",
+    tagline: "FP&A Automation Platform",
+    description: "Learn Datarails' AI-powered financial planning and analysis platform. Master automated data consolidation, real-time reporting, and predictive analytics to transform your finance operations.",
+    applications: ["Financial planning", "Data consolidation", "Reporting automation", "Forecasting"],
+    estimatedTime: "8 hours",
+    difficulty: "Advanced",
+    icon: DollarSign,
+    accentColor: "hsl(220, 90%, 56%)",
+    bgGradient: "from-[hsl(220,90%,56%)] to-[hsl(240,90%,46%)]",
+  },
+  {
+    id: "vena",
+    name: "Vena Solutions",
+    category: "finance",
+    tagline: "Complete Planning Platform",
+    description: "Master Vena's comprehensive planning platform that combines Excel with AI-powered automation. Learn to build financial models, streamline budgeting, and create dynamic forecasts with intelligent insights.",
+    applications: ["Budgeting", "Financial modeling", "Scenario planning", "Workflow automation"],
+    estimatedTime: "10 hours",
+    difficulty: "Intermediate",
+    icon: DollarSign,
+    accentColor: "hsl(24, 95%, 53%)",
+    bgGradient: "from-[hsl(24,95%,53%)] to-[hsl(10,95%,43%)]",
   },
 ];
 
