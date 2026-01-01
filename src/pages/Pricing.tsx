@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, X, Zap, Crown, Building2 } from "lucide-react";
+import { Check, X, Zap, Crown, Building2, MessageSquare, BookOpen, BarChart3, Users, Route, Headphones, Shield, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
@@ -10,37 +10,37 @@ const pricingPlans = [
   {
     name: "Free",
     icon: Zap,
-    description: "Perfect for exploring AI-powered learning",
+    description: "Start exploring AI-powered learning with limited access",
     monthlyPrice: 0,
     yearlyPrice: 0,
     features: [
-      { name: "5 AI tutoring sessions/month", included: true },
-      { name: "Basic course library", included: true },
-      { name: "Progress tracking", included: true },
-      { name: "Community forum access", included: true },
-      { name: "Email support", included: true },
-      { name: "Advanced AI features", included: false },
-      { name: "Priority support", included: false },
-      { name: "Custom learning paths", included: false },
+      { name: "5 AI tutor queries per course", included: true, icon: MessageSquare },
+      { name: "Access to all course materials", included: true, icon: BookOpen },
+      { name: "Basic progress tracking", included: true, icon: BarChart3 },
+      { name: "Community forum access", included: true, icon: Users },
+      { name: "Email support (48h response)", included: true, icon: Headphones },
+      { name: "Custom learning paths", included: false, icon: Route },
+      { name: "Advanced AI explanations", included: false, icon: MessageSquare },
+      { name: "Priority support", included: false, icon: Headphones },
     ],
-    cta: "Start Free",
+    cta: "Get Started Free",
     popular: false,
   },
   {
     name: "Pro",
     icon: Crown,
-    description: "For serious learners who want to accelerate",
-    monthlyPrice: 29,
-    yearlyPrice: 290,
+    description: "Unlimited AI tutoring for accelerated mastery",
+    monthlyPrice: 49,
+    yearlyPrice: 490,
     features: [
-      { name: "Unlimited AI tutoring", included: true },
-      { name: "Full course library", included: true },
-      { name: "Advanced analytics", included: true },
-      { name: "Priority community access", included: true },
-      { name: "Priority support", included: true },
-      { name: "Custom learning paths", included: true },
-      { name: "Offline mode", included: true },
-      { name: "Team features", included: false },
+      { name: "Unlimited AI tutor queries", included: true, icon: MessageSquare },
+      { name: "Full course library access", included: true, icon: BookOpen },
+      { name: "Advanced analytics & insights", included: true, icon: BarChart3 },
+      { name: "Priority community access", included: true, icon: Users },
+      { name: "Custom learning paths", included: true, icon: Route },
+      { name: "Deep-dive AI explanations", included: true, icon: MessageSquare },
+      { name: "Priority support (4h response)", included: true, icon: Headphones },
+      { name: "Offline course downloads", included: true, icon: BookOpen },
     ],
     cta: "Start Pro Trial",
     popular: true,
@@ -48,18 +48,18 @@ const pricingPlans = [
   {
     name: "Enterprise",
     icon: Building2,
-    description: "For teams and organizations at scale",
-    monthlyPrice: 99,
-    yearlyPrice: 990,
+    description: "Empower your entire team with AI learning",
+    monthlyPrice: null,
+    yearlyPrice: null,
     features: [
-      { name: "Everything in Pro", included: true },
-      { name: "Unlimited team members", included: true },
-      { name: "Custom integrations", included: true },
-      { name: "Dedicated success manager", included: true },
-      { name: "SSO & advanced security", included: true },
-      { name: "Custom content creation", included: true },
-      { name: "API access", included: true },
-      { name: "SLA guarantee", included: true },
+      { name: "Everything in Pro", included: true, icon: Crown },
+      { name: "Unlimited employee seats", included: true, icon: Users },
+      { name: "Team progress dashboard", included: true, icon: BarChart3 },
+      { name: "Custom course creation", included: true, icon: BookOpen },
+      { name: "SSO & advanced security", included: true, icon: Shield },
+      { name: "Dedicated success manager", included: true, icon: Headphones },
+      { name: "API access & integrations", included: true, icon: Globe },
+      { name: "SLA guarantee (99.9%)", included: true, icon: Shield },
     ],
     cta: "Contact Sales",
     popular: false,
@@ -82,13 +82,14 @@ export default function Pricing() {
           className="container mx-auto px-6 text-center mb-16"
         >
           <span className="font-mono text-xs tracking-widest text-foreground/50 uppercase">
-            Simple Pricing
+            AI Tutor Pricing
           </span>
           <h1 className="font-display text-5xl md:text-7xl font-bold mt-4 mb-6">
-            Invest in Your Future
+            Learn Smarter with AI
           </h1>
           <p className="font-body text-lg text-foreground/60 max-w-2xl mx-auto">
-            Choose the plan that fits your learning journey. All plans include our core AI-powered features.
+            Get instant answers, personalized explanations, and guided learning from our AI tutor. 
+            Choose the plan that matches your learning goals.
           </p>
 
           {/* Toggle */}
@@ -177,28 +178,44 @@ export default function Pricing() {
                 </p>
 
                 <div className="mb-8">
-                  <div className="flex items-baseline gap-1">
-                    <span className="font-display text-5xl font-bold">
-                      ${isYearly ? plan.yearlyPrice : plan.monthlyPrice}
-                    </span>
-                    <span
-                      className={cn(
-                        "font-body text-sm",
-                        plan.popular ? "text-background/60" : "text-foreground/50"
+                  {plan.monthlyPrice !== null ? (
+                    <>
+                      <div className="flex items-baseline gap-1">
+                        <span className="font-display text-5xl font-bold">
+                          ${isYearly ? plan.yearlyPrice : plan.monthlyPrice}
+                        </span>
+                        <span
+                          className={cn(
+                            "font-body text-sm",
+                            plan.popular ? "text-background/60" : "text-foreground/50"
+                          )}
+                        >
+                          /{isYearly ? "year" : "month"}
+                        </span>
+                      </div>
+                      {isYearly && plan.monthlyPrice > 0 && (
+                        <p
+                          className={cn(
+                            "font-mono text-xs mt-2",
+                            plan.popular ? "text-background/50" : "text-foreground/40"
+                          )}
+                        >
+                          ${Math.round((plan.yearlyPrice ?? 0) / 12)}/month billed annually
+                        </p>
                       )}
-                    >
-                      /{isYearly ? "year" : "month"}
-                    </span>
-                  </div>
-                  {isYearly && plan.monthlyPrice > 0 && (
-                    <p
-                      className={cn(
-                        "font-mono text-xs mt-2",
-                        plan.popular ? "text-background/50" : "text-foreground/40"
-                      )}
-                    >
-                      ${Math.round(plan.yearlyPrice / 12)}/month billed annually
-                    </p>
+                    </>
+                  ) : (
+                    <div className="flex items-baseline gap-1">
+                      <span className="font-display text-4xl font-bold">Custom</span>
+                      <span
+                        className={cn(
+                          "font-body text-sm",
+                          plan.popular ? "text-background/60" : "text-foreground/50"
+                        )}
+                      >
+                        pricing
+                      </span>
+                    </div>
                   )}
                 </div>
 
