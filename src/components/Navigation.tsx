@@ -3,10 +3,16 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "./ThemeToggle";
+import { AuthModal } from "./AuthModal";
+import { supabase } from "@/integrations/supabase/client";
+import { User } from "@supabase/supabase-js";
+import { LogOut } from "lucide-react";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
@@ -18,6 +24,24 @@ export function Navigation() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        setUser(session?.user ?? null);
+      }
+    );
+
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+  };
 
   const navLinks = [
     { label: "Features", href: isHomePage ? "#features" : "/#features" },
@@ -70,12 +94,22 @@ export function Navigation() {
 
         {/* CTA */}
         <div className="hidden md:flex items-center gap-4">
-          <a
-            href="#"
-            className="font-body text-sm text-foreground/70 hover:text-foreground transition-colors"
-          >
-            Log In
-          </a>
+          {user ? (
+            <button
+              onClick={handleLogout}
+              className="flex items-center gap-2 font-body text-sm text-foreground/70 hover:text-foreground transition-colors"
+            >
+              <LogOut className="w-4 h-4" />
+              Log Out
+            </button>
+          ) : (
+            <button
+              onClick={() => setIsAuthModalOpen(true)}
+              className="font-body text-sm text-foreground/70 hover:text-foreground transition-colors"
+            >
+              Log In
+            </button>
+          )}
           <a
             href="#cta"
             className="magnetic-btn text-xs"
@@ -146,6 +180,8 @@ export function Navigation() {
           </div>
         </div>
       </motion.div>
+
+      <AuthModal isOpen={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)} />
     </motion.header>
   );
 }
