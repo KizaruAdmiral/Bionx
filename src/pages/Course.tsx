@@ -204,6 +204,13 @@ const courses = [
   },
 ];
 
+const HOURLY_RATE = 33;
+
+const getPrice = (estimatedTime: string): number => {
+  const hours = parseInt(estimatedTime);
+  return hours * HOURLY_RATE;
+};
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -413,14 +420,24 @@ export default function Course() {
                         </div>
                       </div>
 
-                      {/* Footer */}
-                      <div className="flex items-center justify-between pt-6 border-t border-foreground/10">
+                      {/* Price & Time */}
+                      <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center gap-2 text-foreground/50">
                           <Clock className="w-4 h-4" />
                           <span className="font-mono text-sm">
                             {course.estimatedTime}
                           </span>
                         </div>
+                        <span 
+                          className="font-display text-2xl font-bold"
+                          style={{ color: course.accentColor }}
+                        >
+                          ${getPrice(course.estimatedTime)}
+                        </span>
+                      </div>
+
+                      {/* Footer */}
+                      <div className="flex items-center justify-between pt-6 border-t border-foreground/10">
                         <motion.button
                           whileHover={{ x: 4 }}
                           className="flex items-center gap-2 font-body text-sm transition-colors"
