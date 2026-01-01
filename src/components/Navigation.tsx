@@ -22,7 +22,7 @@ export function Navigation() {
   const navLinks = [
     { label: "Features", href: isHomePage ? "#features" : "/#features" },
     { label: "How It Works", href: isHomePage ? "#how-it-works" : "/#how-it-works" },
-    { label: "Testimonials", href: isHomePage ? "#testimonials" : "/#testimonials" },
+    { label: "Course", href: "/course" },
     { label: "Pricing", href: "/pricing" },
     { label: "FAQ", href: "/faq" },
   ];
