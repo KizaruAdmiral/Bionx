@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { 
@@ -241,6 +242,7 @@ const cardVariants = {
 };
 
 export default function Course() {
+  const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -440,6 +442,7 @@ export default function Course() {
                       <div className="flex items-center justify-between pt-6 border-t border-foreground/10">
                         <motion.button
                           whileHover={{ x: 4 }}
+                          onClick={() => navigate(`/course/${course.id}`)}
                           className="flex items-center gap-2 font-body text-sm transition-colors"
                           style={{ color: course.accentColor }}
                         >
