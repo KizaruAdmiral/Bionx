@@ -115,13 +115,13 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
 
           {/* Modal */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-md"
+            className="fixed inset-0 z-50 flex items-center justify-center p-6 pointer-events-none"
           >
-            <div className="bg-background border border-foreground/10 p-8 shadow-2xl">
+            <div className="bg-background border border-foreground/10 p-8 shadow-2xl w-full max-w-md pointer-events-auto relative">
               {/* Close Button */}
               <button
                 onClick={onClose}
