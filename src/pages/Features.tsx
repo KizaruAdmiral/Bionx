@@ -160,7 +160,7 @@ export default function Features() {
 
         <div className="container mx-auto px-6 relative z-10">
           <FadeIn className="mb-16 max-w-3xl">
-            <span className="font-mono text-xs tracking-[0.3em] uppercase text-foreground/40 mb-4 block">
+            <span className="font-mono text-sm md:text-base tracking-[0.3em] uppercase text-foreground font-semibold mb-6 block">
               The Problem
             </span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-6">
@@ -199,7 +199,7 @@ export default function Features() {
       <section className="section-light py-24 md:py-32 relative overflow-hidden">
         <div className="container mx-auto px-6">
           <FadeIn className="mb-16 text-center max-w-3xl mx-auto">
-            <span className="font-mono text-xs tracking-[0.3em] uppercase text-background/60 mb-4 block">
+            <span className="font-mono text-sm md:text-base tracking-[0.3em] uppercase text-background font-semibold mb-6 block">
               The Solution
             </span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-background mb-6">
@@ -311,7 +311,7 @@ export default function Features() {
       <section className="section-dark py-24 md:py-32 relative overflow-hidden">
         <div className="container mx-auto px-6">
           <FadeIn className="mb-16 text-center max-w-3xl mx-auto">
-            <span className="font-mono text-xs tracking-[0.3em] uppercase text-foreground/40 mb-4 block">
+            <span className="font-mono text-sm md:text-base tracking-[0.3em] uppercase text-foreground font-semibold mb-6 block">
               The Proof
             </span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-6">
@@ -346,7 +346,7 @@ export default function Features() {
       <section className="section-light py-24 md:py-32 relative overflow-hidden">
         <div className="container mx-auto px-6">
           <FadeIn className="mb-16 text-center max-w-3xl mx-auto">
-            <span className="font-mono text-xs tracking-[0.3em] uppercase text-background/60 mb-4 block">
+            <span className="font-mono text-sm md:text-base tracking-[0.3em] uppercase text-background font-semibold mb-6 block">
               Capabilities
             </span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-background mb-6">
@@ -388,7 +388,7 @@ export default function Features() {
       <section className="py-24 md:py-32 relative overflow-hidden">
         <div className="container mx-auto px-6">
           <FadeIn className="mb-16 text-center max-w-3xl mx-auto">
-            <span className="font-mono text-xs tracking-[0.3em] uppercase text-foreground/40 mb-4 block">
+            <span className="font-mono text-sm md:text-base tracking-[0.3em] uppercase text-foreground font-semibold mb-6 block">
               Comparison
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
