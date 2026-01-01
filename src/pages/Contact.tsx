@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, MessageSquare, Send } from "lucide-react";
+import { Send } from "lucide-react";
 import { z } from "zod";
 
 const contactSchema = z.object({
@@ -107,36 +107,6 @@ export default function Contact() {
         <div className="container mx-auto max-w-2xl">
           <FadeIn>
             <div className="border border-foreground/10 p-8 md:p-12 bg-background/50">
-              {/* Quick Info */}
-              <div className="flex flex-wrap gap-6 mb-10 pb-10 border-b border-foreground/10">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 border border-foreground/20 flex items-center justify-center">
-                    <Mail className="w-4 h-4 text-foreground/60" />
-                  </div>
-                  <div>
-                    <span className="font-mono text-xs text-foreground/40 uppercase tracking-wider block">
-                      Email
-                    </span>
-                    <span className="font-body text-sm text-foreground">
-                      support@binox.ai
-                    </span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 border border-foreground/20 flex items-center justify-center">
-                    <MessageSquare className="w-4 h-4 text-foreground/60" />
-                  </div>
-                  <div>
-                    <span className="font-mono text-xs text-foreground/40 uppercase tracking-wider block">
-                      Response Time
-                    </span>
-                    <span className="font-body text-sm text-foreground">
-                      Within 24-48 hours
-                    </span>
-                  </div>
-                </div>
-              </div>
-
               {/* Form */}
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
