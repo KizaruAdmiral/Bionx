@@ -1,10 +1,22 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/RevealText";
 import { Check, Target, Lightbulb, Trophy } from "lucide-react";
+import heroImage from "@/assets/hero-evolution.jpg";
 
 export default function Features() {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+
+  const imageX = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.3]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+
   const problems = [
     {
       title: "One-Size-Fits-None",
@@ -99,20 +111,34 @@ export default function Features() {
       <Navigation />
 
       {/* Hero Section - The Future of Learning is Here */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-1/3 left-1/4 w-96 h-96 border border-foreground/20 rounded-full" />
-          <div className="absolute bottom-1/4 right-1/3 w-64 h-64 border border-foreground/20 rounded-full" />
-        </div>
+      <section
+        ref={heroRef}
+        className="relative min-h-[70vh] flex items-center justify-center overflow-hidden"
+      >
+        {/* Background Image with Parallax */}
+        <motion.div
+          style={{ x: imageX, scale }}
+          className="absolute inset-0 w-[120%] h-full -left-[10%]"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/50 to-background/30 z-10" />
+          <img
+            src={heroImage}
+            alt="Evolution of education through time"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50 z-10" />
+        </motion.div>
         
-        <div className="container mx-auto max-w-4xl relative z-10">
+        <motion.div
+          style={{ opacity }}
+          className="container mx-auto max-w-4xl relative z-20 px-6 text-center"
+        >
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-center"
           >
-            <span className="inline-block font-mono text-xs tracking-widest text-foreground/50 uppercase mb-4">
+            <span className="inline-block font-mono text-xs tracking-widest text-foreground/60 uppercase mb-4">
               Features
             </span>
             <h1 className="font-display text-5xl md:text-7xl font-bold tracking-tight text-foreground mb-6">
@@ -123,7 +149,7 @@ export default function Features() {
               Every feature designed to maximize your potential.
             </p>
           </motion.div>
-        </div>
+        </motion.div>
       </section>
 
       {/* The Problem */}
