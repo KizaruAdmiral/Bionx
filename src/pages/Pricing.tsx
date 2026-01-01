@@ -18,7 +18,6 @@ const pricingPlans = [
       { name: "Access to all course materials", included: true, icon: BookOpen },
       { name: "Basic progress tracking", included: true, icon: BarChart3 },
       { name: "Community forum access", included: true, icon: Users },
-      { name: "Email support (48h response)", included: true, icon: Headphones },
       { name: "Custom learning paths", included: false, icon: Route },
       { name: "Advanced AI explanations", included: false, icon: MessageSquare },
       { name: "Priority support", included: false, icon: Headphones },
@@ -39,7 +38,7 @@ const pricingPlans = [
       { name: "Priority community access", included: true, icon: Users },
       { name: "Custom learning paths", included: true, icon: Route },
       { name: "Deep-dive AI explanations", included: true, icon: MessageSquare },
-      { name: "Priority support (4h response)", included: true, icon: Headphones },
+      { name: "Priority support", included: true, icon: Headphones },
       { name: "Offline course downloads", included: true, icon: BookOpen },
     ],
     cta: "Start Pro Trial",
@@ -82,7 +81,7 @@ export default function Pricing() {
           className="container mx-auto px-6 text-center mb-16"
         >
           <span className="font-mono text-xs tracking-widest text-foreground/50 uppercase">
-            AI Tutor Pricing
+            AI Tutoring Pricing
           </span>
           <h1 className="font-display text-5xl md:text-7xl font-bold mt-4 mb-6">
             Learn Smarter with AI
