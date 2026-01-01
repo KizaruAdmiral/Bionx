@@ -23,6 +23,7 @@ export function Navigation() {
     { label: "How It Works", href: isHomePage ? "#how-it-works" : "/#how-it-works" },
     { label: "Testimonials", href: isHomePage ? "#testimonials" : "/#testimonials" },
     { label: "Pricing", href: "/pricing" },
+    { label: "FAQ", href: "/faq" },
   ];
 
   return (
