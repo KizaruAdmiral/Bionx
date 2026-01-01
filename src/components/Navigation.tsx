@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,10 +19,10 @@ export function Navigation() {
   }, []);
 
   const navLinks = [
-    { label: "Features", href: "#features" },
-    { label: "How It Works", href: "#how-it-works" },
-    { label: "Testimonials", href: "#testimonials" },
-    { label: "Pricing", href: "#pricing" },
+    { label: "Features", href: isHomePage ? "#features" : "/#features" },
+    { label: "How It Works", href: isHomePage ? "#how-it-works" : "/#how-it-works" },
+    { label: "Testimonials", href: isHomePage ? "#testimonials" : "/#testimonials" },
+    { label: "Pricing", href: "/pricing" },
   ];
 
   return (
@@ -36,21 +39,31 @@ export function Navigation() {
     >
       <nav className="container mx-auto flex items-center justify-between px-6 py-5">
         {/* Logo */}
-        <a href="#" className="font-display text-2xl font-bold tracking-tight text-foreground">
+        <Link to="/" className="font-display text-2xl font-bold tracking-tight text-foreground">
           BINOX
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-10">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="link-underline font-body text-sm text-foreground/70 hover:text-foreground transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) =>
+            link.href.startsWith("/") ? (
+              <Link
+                key={link.label}
+                to={link.href}
+                className="link-underline font-body text-sm text-foreground/70 hover:text-foreground transition-colors"
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.label}
+                href={link.href}
+                className="link-underline font-body text-sm text-foreground/70 hover:text-foreground transition-colors"
+              >
+                {link.label}
+              </a>
+            )
+          )}
         </div>
 
         {/* CTA */}
@@ -97,16 +110,27 @@ export function Navigation() {
         className="md:hidden overflow-hidden bg-background border-b border-foreground/10"
       >
         <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="font-body text-lg text-foreground/70 hover:text-foreground transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) =>
+            link.href.startsWith("/") ? (
+              <Link
+                key={link.label}
+                to={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="font-body text-lg text-foreground/70 hover:text-foreground transition-colors"
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="font-body text-lg text-foreground/70 hover:text-foreground transition-colors"
+              >
+                {link.label}
+              </a>
+            )
+          )}
           <a
             href="#cta"
             onClick={() => setIsMobileMenuOpen(false)}
