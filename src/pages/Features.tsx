@@ -196,32 +196,108 @@ export default function Features() {
       </section>
 
       {/* The Solution */}
-      <section className="py-24 md:py-32 relative overflow-hidden">
+      <section className="section-light py-24 md:py-32 relative overflow-hidden">
         <div className="container mx-auto px-6">
-          <FadeIn className="mb-16 max-w-3xl">
-            <span className="font-mono text-xs tracking-[0.3em] uppercase text-foreground/40 mb-4 block">
+          <FadeIn className="mb-16 text-center max-w-3xl mx-auto">
+            <span className="font-mono text-xs tracking-[0.3em] uppercase text-background/60 mb-4 block">
               The Solution
             </span>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-6">
-              Learning that adapts to you.
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-background mb-6">
+              Intelligence that teaches.
             </h2>
-            <p className="font-serif text-lg text-foreground/60 text-justify">
-              Our AI-powered platform understands how you learn best and continuously 
-              optimizes your educational journey.
+            <p className="font-serif text-lg text-background/80 text-justify">
+              Binox combines cutting-edge AI with proven learning science to create an experience that's truly personal. 
+              See how our adaptive platform works in real-time.
             </p>
           </FadeIn>
 
-          <StaggerContainer className="grid md:grid-cols-3 gap-8" staggerDelay={0.15}>
+          {/* Product Demo Area */}
+          <FadeIn delay={0.2}>
+            <div className="relative mx-auto max-w-5xl mb-20">
+              {/* Mock Interface */}
+              <div className="aspect-video bg-background border border-background/10 overflow-hidden relative group">
+                {/* Simulated UI */}
+                <div className="absolute inset-0 p-6 md:p-10">
+                  <div className="flex items-center justify-between mb-8">
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 rounded-full bg-foreground/10" />
+                      <div>
+                        <div className="w-24 h-3 bg-foreground/20 mb-2" />
+                        <div className="w-16 h-2 bg-foreground/10" />
+                      </div>
+                    </div>
+                    <div className="flex gap-2">
+                      <div className="w-8 h-8 border border-foreground/10" />
+                      <div className="w-8 h-8 border border-foreground/10" />
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-3 gap-6">
+                    {/* Main Content Area */}
+                    <div className="md:col-span-2 space-y-4">
+                      <div className="w-full h-48 bg-foreground/5 flex items-center justify-center">
+                        <motion.div
+                          animate={{ scale: [1, 1.05, 1] }}
+                          transition={{ duration: 3, repeat: Infinity }}
+                          className="font-display text-2xl text-foreground/20"
+                        >
+                          ◈ AI Tutor Active
+                        </motion.div>
+                      </div>
+                      <div className="flex gap-2">
+                        <div className="flex-1 h-10 bg-foreground/5 border border-foreground/10" />
+                        <div className="w-20 h-10 bg-foreground" />
+                      </div>
+                    </div>
+
+                    {/* Sidebar */}
+                    <div className="space-y-4">
+                      <div className="p-4 border border-foreground/10">
+                        <div className="text-xs font-mono text-foreground/40 mb-3">Progress</div>
+                        <div className="w-full h-2 bg-foreground/10 overflow-hidden">
+                          <motion.div
+                            initial={{ width: "0%" }}
+                            whileInView={{ width: "72%" }}
+                            transition={{ duration: 1.5, delay: 0.5 }}
+                            viewport={{ once: true }}
+                            className="h-full bg-foreground"
+                          />
+                        </div>
+                        <div className="text-right mt-2 font-mono text-sm text-foreground/60">72%</div>
+                      </div>
+                      <div className="p-4 border border-foreground/10">
+                        <div className="text-xs font-mono text-foreground/40 mb-3">Next Up</div>
+                        <div className="space-y-2">
+                          <div className="w-full h-8 bg-foreground/5" />
+                          <div className="w-full h-8 bg-foreground/5" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-background/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                  <button className="magnetic-btn text-sm border-foreground text-foreground hover:bg-foreground hover:text-background">
+                    <span>Try Live Demo</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </FadeIn>
+
+          {/* Feature Grid */}
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.1}>
             {solutions.map((solution, index) => (
               <StaggerItem key={index}>
-                <div className="group h-full p-8 border border-foreground/10 hover:border-foreground/30 transition-all duration-300">
-                  <div className="w-12 h-12 border border-foreground/20 flex items-center justify-center mb-6 group-hover:border-foreground/40 transition-colors">
-                    <solution.icon className="w-6 h-6 text-foreground/60 group-hover:text-foreground transition-colors" />
+                <div className="group h-full p-6 border border-background/10 hover:bg-background/5 transition-colors duration-300">
+                  <div className="w-12 h-12 border border-background/20 flex items-center justify-center mb-4 group-hover:border-background/40 transition-colors">
+                    <solution.icon className="w-6 h-6 text-background/60 group-hover:text-background transition-colors" />
                   </div>
-                  <h3 className="font-display text-xl font-semibold text-foreground mb-3">
+                  <h3 className="font-display text-lg font-semibold text-background mb-2">
                     {solution.title}
                   </h3>
-                  <p className="font-body text-foreground/60 leading-relaxed text-justify">
+                  <p className="font-body text-background/70 leading-relaxed text-justify">
                     {solution.description}
                   </p>
                 </div>
