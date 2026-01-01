@@ -1,36 +1,10 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Check, X, Zap, Crown, Building2, Plus, Minus } from "lucide-react";
+import { motion } from "framer-motion";
+import { Check, X, Zap, Crown, Building2 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { cn } from "@/lib/utils";
-
-const faqItems = [
-  {
-    question: "How does the AI tutoring work?",
-    answer: "Our AI tutor uses advanced language models to provide personalized, real-time assistance. It adapts to your learning style, explains concepts in multiple ways, and provides practice problems tailored to your skill level. Think of it as having a patient, knowledgeable tutor available 24/7."
-  },
-  {
-    question: "Can I switch plans at any time?",
-    answer: "Absolutely. You can upgrade or downgrade your plan at any time. When upgrading, you'll get immediate access to new features. When downgrading, your current plan remains active until the end of your billing period."
-  },
-  {
-    question: "What's included in the free trial?",
-    answer: "The Pro trial gives you full access to all Pro features for 14 days, including unlimited AI tutoring, advanced analytics, and custom learning paths. No credit card required to start."
-  },
-  {
-    question: "How do team features work for Enterprise?",
-    answer: "Enterprise plans include a centralized admin dashboard, team progress tracking, custom content assignment, and detailed analytics across your organization. You can also create custom learning paths for different departments or roles."
-  },
-  {
-    question: "Is my learning data private and secure?",
-    answer: "Yes, we take privacy seriously. All data is encrypted at rest and in transit. We're SOC 2 Type II compliant, and Enterprise plans include additional security features like SSO, audit logs, and data residency options."
-  },
-  {
-    question: "Can I get a refund if I'm not satisfied?",
-    answer: "We offer a 30-day money-back guarantee on all paid plans. If you're not completely satisfied, contact our support team for a full refund, no questions asked."
-  },
-];
 
 const pricingPlans = [
   {
@@ -91,97 +65,6 @@ const pricingPlans = [
     popular: false,
   },
 ];
-
-function FAQSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  return (
-    <motion.section
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6 }}
-      className="container mx-auto px-6 mt-32"
-    >
-      <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-12">
-          <span className="font-mono text-xs tracking-widest text-foreground/50 uppercase">
-            FAQ
-          </span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mt-4">
-            Common Questions
-          </h2>
-        </div>
-
-        <div className="space-y-4">
-          {faqItems.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="border border-foreground/10 rounded-xl overflow-hidden"
-            >
-              <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-6 text-left hover:bg-foreground/5 transition-colors"
-              >
-                <span className="font-body text-lg font-medium pr-8">
-                  {item.question}
-                </span>
-                <motion.div
-                  animate={{ rotate: openIndex === index ? 180 : 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="flex-shrink-0"
-                >
-                  {openIndex === index ? (
-                    <Minus className="w-5 h-5 text-foreground/60" />
-                  ) : (
-                    <Plus className="w-5 h-5 text-foreground/60" />
-                  )}
-                </motion.div>
-              </button>
-              
-              <AnimatePresence initial={false}>
-                {openIndex === index && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                    className="overflow-hidden"
-                  >
-                    <div className="px-6 pb-6">
-                      <p className="font-body text-foreground/60 leading-relaxed">
-                        {item.answer}
-                      </p>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center mt-12"
-        >
-          <p className="font-body text-foreground/60">
-            Still have questions?{" "}
-            <a href="#" className="text-foreground underline underline-offset-4 hover:no-underline">
-              Contact our support team
-            </a>
-          </p>
-        </motion.div>
-      </div>
-    </motion.section>
-  );
-}
 
 export default function Pricing() {
   const [isYearly, setIsYearly] = useState(false);
@@ -372,8 +255,25 @@ export default function Pricing() {
           </div>
         </div>
 
-        {/* FAQ Section */}
-        <FAQSection />
+        {/* FAQ Link */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="container mx-auto px-6 mt-24 text-center"
+        >
+          <p className="font-body text-foreground/60">
+            Have questions?{" "}
+            <Link to="/faq" className="text-foreground underline underline-offset-4 hover:no-underline">
+              Check our FAQ
+            </Link>{" "}
+            or{" "}
+            <a href="#" className="text-foreground underline underline-offset-4 hover:no-underline">
+              contact support
+            </a>
+          </p>
+        </motion.div>
       </main>
 
       <Footer />
