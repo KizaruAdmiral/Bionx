@@ -7,44 +7,44 @@
 
 @layer base {
   :root {
-    /* Core Palette - Pure B&W */
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
+    /* Bright, Clean Palette - Default Light */
+    --background: 0 0% 99%;
+    --foreground: 220 15% 15%;
     
-    --card: 0 0% 4%;
-    --card-foreground: 0 0% 100%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 15%;
     
-    --popover: 0 0% 4%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 15%;
     
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 0%;
+    --primary: 220 90% 56%;
+    --primary-foreground: 0 0% 100%;
     
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 220 15% 96%;
+    --secondary-foreground: 220 15% 25%;
     
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 220 10% 94%;
+    --muted-foreground: 220 10% 45%;
     
-    --accent: 0 0% 20%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 220 15% 92%;
+    --accent-foreground: 220 15% 20%;
     
-    --destructive: 0 0% 30%;
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 0 0% 100%;
+    --border: 220 13% 90%;
+    --input: 220 13% 90%;
+    --ring: 220 90% 56%;
     
-    --radius: 0px;
+    --radius: 12px;
     
     /* Custom Design Tokens */
-    --grain-opacity: 0.03;
+    --grain-opacity: 0.015;
     --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
     --transition-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
     
     /* Spacing */
-    --section-padding: clamp(4rem, 10vw, 8rem);
+    --section-padding: clamp(3rem, 8vw, 6rem);
     
     /* Typography Scale */
     --font-display: 'Clash Display', system-ui, sans-serif;
@@ -53,31 +53,31 @@
     --font-serif: 'Source Serif 4', Georgia, serif;
   }
 
-  .light {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
+  .dark {
+    --background: 220 15% 8%;
+    --foreground: 0 0% 98%;
     
-    --card: 0 0% 98%;
-    --card-foreground: 0 0% 0%;
+    --card: 220 15% 10%;
+    --card-foreground: 0 0% 98%;
     
-    --popover: 0 0% 98%;
-    --popover-foreground: 0 0% 0%;
+    --popover: 220 15% 10%;
+    --popover-foreground: 0 0% 98%;
     
-    --primary: 0 0% 0%;
+    --primary: 220 90% 60%;
     --primary-foreground: 0 0% 100%;
     
-    --secondary: 0 0% 95%;
-    --secondary-foreground: 0 0% 0%;
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 0 0% 95%;
     
-    --muted: 0 0% 90%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 220 10% 20%;
+    --muted-foreground: 220 10% 60%;
     
-    --accent: 0 0% 92%;
-    --accent-foreground: 0 0% 0%;
+    --accent: 220 15% 18%;
+    --accent-foreground: 0 0% 98%;
     
-    --border: 0 0% 85%;
-    --input: 0 0% 85%;
-    --ring: 0 0% 0%;
+    --border: 220 13% 20%;
+    --input: 220 13% 20%;
+    --ring: 220 90% 60%;
   }
 }
 

@@ -9,6 +9,7 @@ export function TestimonialsSection() {
       author: "Sarah Chen",
       role: "Software Engineer @ Google",
       metric: "3x faster skill acquisition",
+      avatar: "👩‍💻",
     },
     {
       quote:
@@ -16,6 +17,7 @@ export function TestimonialsSection() {
       author: "Marcus Williams",
       role: "Head of L&D @ Stripe",
       metric: "50% reduction in training time",
+      avatar: "👨‍💼",
     },
     {
       quote:
@@ -23,6 +25,7 @@ export function TestimonialsSection() {
       author: "Dr. Emily Rodriguez",
       role: "Research Scientist",
       metric: "92% completion rate",
+      avatar: "👩‍🔬",
     },
   ];
 
@@ -34,21 +37,21 @@ export function TestimonialsSection() {
   ];
 
   return (
-    <section className="section-dark py-32 md:py-40 relative overflow-hidden">
+    <section className="py-24 md:py-32 relative overflow-hidden bg-secondary/30">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <FadeIn className="mb-20 text-center max-w-3xl mx-auto">
-          <span className="font-mono text-xs tracking-[0.3em] uppercase text-foreground/40 mb-4 block">
-            Proof
+        <FadeIn className="mb-16 text-center max-w-3xl mx-auto">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-mono text-xs tracking-[0.2em] uppercase mb-6">
+            Testimonials
           </span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-6">
             Words from the wise.
           </h2>
         </FadeIn>
 
         {/* Metrics Bar */}
         <FadeIn delay={0.2}>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 pb-20 border-b border-foreground/10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
             {metrics.map((metric, index) => (
               <motion.div
                 key={index}
@@ -56,12 +59,12 @@ export function TestimonialsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="text-center"
+                className="text-center p-6 rounded-2xl bg-card border border-border"
               >
-                <div className="font-display text-4xl md:text-5xl font-bold text-foreground mb-2">
+                <div className="font-display text-3xl md:text-4xl font-bold text-primary mb-2">
                   {metric.value}
                 </div>
-                <div className="font-mono text-xs tracking-wider text-foreground/50 uppercase">
+                <div className="font-mono text-xs tracking-wider text-muted-foreground uppercase">
                   {metric.label}
                 </div>
               </motion.div>
@@ -71,74 +74,52 @@ export function TestimonialsSection() {
 
         {/* Testimonials */}
         <StaggerContainer
-          className="grid md:grid-cols-3 gap-8"
+          className="grid md:grid-cols-3 gap-6"
           staggerDelay={0.15}
         >
           {testimonials.map((testimonial, index) => (
             <StaggerItem key={index}>
               <div className="group h-full flex flex-col">
-                <div className="flex-1 p-8 border border-foreground/10 bg-card hover:border-foreground/30 transition-colors duration-500">
-                  <blockquote className="font-serif text-lg text-foreground/80 mb-6 leading-relaxed">
+                <div className="flex-1 p-6 rounded-2xl border border-border bg-card hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-3xl">{testimonial.avatar}</span>
+                    <div>
+                      <div className="font-display font-semibold text-foreground">
+                        {testimonial.author}
+                      </div>
+                      <div className="font-body text-sm text-muted-foreground">
+                        {testimonial.role}
+                      </div>
+                    </div>
+                  </div>
+                  <blockquote className="font-serif text-foreground/80 mb-4 leading-relaxed">
                     "{testimonial.quote}"
                   </blockquote>
                   <div className="mt-auto">
-                    <div className="font-display font-semibold text-foreground">
-                      {testimonial.author}
-                    </div>
-                    <div className="font-body text-sm text-foreground/50">
-                      {testimonial.role}
-                    </div>
+                    <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary font-mono text-xs">
+                      {testimonial.metric}
+                    </span>
                   </div>
-                </div>
-                <div className="p-4 border border-t-0 border-foreground/10 bg-foreground/5">
-                  <span className="font-mono text-xs text-foreground/60">
-                    {testimonial.metric}
-                  </span>
                 </div>
               </div>
             </StaggerItem>
           ))}
         </StaggerContainer>
 
-        {/* Logos Marquee */}
-        <FadeIn delay={0.4} className="mt-20">
-          <div className="border-t border-foreground/10 pt-12">
-            <p className="font-mono text-xs tracking-[0.3em] uppercase text-foreground/30 text-center mb-8">
-              Trusted by teams at
-            </p>
-            <div className="relative overflow-hidden">
-              <motion.div
-                animate={{ x: [0, -1000] }}
-                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                className="flex gap-16 whitespace-nowrap"
+        {/* Logos */}
+        <FadeIn delay={0.4} className="mt-16">
+          <p className="font-mono text-xs tracking-[0.3em] uppercase text-muted-foreground text-center mb-8">
+            Trusted by teams at
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+            {["Google", "Microsoft", "Amazon", "Meta", "Apple", "Stripe", "Airbnb", "Netflix"].map((company, index) => (
+              <span
+                key={index}
+                className="font-display text-lg text-muted-foreground/40 hover:text-primary transition-colors"
               >
-                {[
-                  "Google",
-                  "Microsoft",
-                  "Amazon",
-                  "Meta",
-                  "Apple",
-                  "Stripe",
-                  "Airbnb",
-                  "Netflix",
-                  "Google",
-                  "Microsoft",
-                  "Amazon",
-                  "Meta",
-                  "Apple",
-                  "Stripe",
-                  "Airbnb",
-                  "Netflix",
-                ].map((company, index) => (
-                  <span
-                    key={index}
-                    className="font-display text-xl text-foreground/20"
-                  >
-                    {company}
-                  </span>
-                ))}
-              </motion.div>
-            </div>
+                {company}
+              </span>
+            ))}
           </div>
         </FadeIn>
       </div>
