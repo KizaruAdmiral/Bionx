@@ -10,18 +10,35 @@ import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
-    <main className="relative bg-background">
+    <main className="relative">
+      {/* Film Grain Overlay */}
+      <div className="grain-overlay" aria-hidden="true" />
+      
       {/* Navigation */}
       <Navigation />
       
-      {/* Single Scroll Landing Page */}
+      {/* Hero Section */}
       <HeroSection />
+      
+      {/* Problem/Solution Narrative */}
       <ProblemSection />
+      
+      {/* Product Showcase */}
       <ProductShowcase />
+      
+      {/* How It Works */}
       <HowItWorksSection />
+      
+      {/* Social Proof */}
       <TestimonialsSection />
+      
+      {/* Technical Differentiators */}
       <FeaturesGrid />
+      
+      {/* Conversion Section */}
       <CTASection />
+      
+      {/* Footer */}
       <Footer />
     </main>
   );
